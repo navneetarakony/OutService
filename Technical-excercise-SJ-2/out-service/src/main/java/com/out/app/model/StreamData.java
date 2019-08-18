@@ -30,6 +30,11 @@ public class StreamData {
     /*
     Location information. Can be made more granular in the future.
      */
-    int state;
+    String state;
+
+    /*
+    Country.
+     */
+    String country;
 }
 
