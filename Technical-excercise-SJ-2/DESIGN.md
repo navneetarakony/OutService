@@ -35,5 +35,10 @@ b. use a No-SQL location.
 c. Use a Write ahead logging before writing to the DB.
 2. To scale the stats service, we can implement a cache since in this case, we are anyway considering a 5 mins interval. Therefore consistency is not really a concern. We can compromise consistency for scale/performance.
 
+Failure scenarios -
+1. The stats service and the clients are stateless services which can always recover from a failure.
+2. The DB is the only stateful service which can have a hot standby to recover its data.
+3. The stats service can be scaled horizontally if it reaches its resource limits.
+
 
 
