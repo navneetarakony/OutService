@@ -27,6 +27,7 @@ Stats service -
 Key Considerations - 
 1. Client device sending data to the stats service using REST API - The other alternative was to use a websocket. But that would require the stats service to have a many open connects as the number of devices.
 2. I am not persisting very granular data about the user in case he/she is not changing the state of the application (ie. stream, device etc). This helps in scaling the DB entries thereby supporting more clients.
+3. There are foreign key constraints with respect to getting device details and User information. This was designed this way because looking up the device info for a particular device id is a relatively infrequent operation. Also user info can be looked up just once while starting a session (only for UX).
 
 Scalability options -
 1. A SQL DB can handle upto 200-300k reads, but this is a write heavy system. In case the requirement is to handle more clients at an instant, we can have the following options implemented - 
